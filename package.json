@@ -1,0 +1,35 @@
+{
+  "name": "vscode-liftoscript",
+  "displayName": "Liftoscript Syntax Highlighting",
+  "description": "Syntax highlighting for the Liftoscript language.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yashrastogi/vscode-liftscript"
+  },
+  "version": "0.0.1",
+  "publisher": "yashrastogi",
+  "engines": {
+    "vscode": "^1.70.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "liftoscript",
+        "aliases": ["Liftoscript", "liftoscript"],
+        "extensions": [".liftoscript"],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "liftoscript",
+        "scopeName": "source.liftoscript",
+        "path": "./syntaxes/liftoscript.tmLanguage.json"
+      }
+    ]
+  }
+}
+
