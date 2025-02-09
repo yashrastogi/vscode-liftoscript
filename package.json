@@ -2,7 +2,7 @@
     "name": "vscode-liftoscript-syntax",
     "displayName": "Liftoscript: Language Support",
     "description": "Syntax highlighting, code formatting and code folding support for the Liftoscript language.",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "publisher": "yashrastogi1",
     "repository": {
         "type": "git",
@@ -16,6 +16,13 @@
     ],
     "main": "./out/extension.js",
     "contributes": {
+        "iconThemes": [
+            {
+                "id": "liftosaur-icon",
+                "label": "Liftosaur Icon",
+                "path": "./icons/icon-theme.json"
+            }
+        ],
         "commands": [],
         "languages": [
             {

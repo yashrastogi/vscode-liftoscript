@@ -1,0 +1,10 @@
+{
+    "iconDefinitions": {
+      "liftoscriptIcon": {
+        "iconPath": "./logo.svg"
+      }
+    },
+    "fileExtensions": {
+      "liftoscript": "liftoscriptIcon"
+    }
+  }

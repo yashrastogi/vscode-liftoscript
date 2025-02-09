@@ -15,3 +15,7 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 ## 0.0.4
 
 - Fix code formatter: make sure {~ is in line with progress/update
+
+## 0.0.5
+
+- Add icon
