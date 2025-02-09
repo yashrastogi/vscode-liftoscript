@@ -10,10 +10,6 @@
       "match": "\\b(if|else|for|while|return|break|continue)\\b"
     },
     {
-      "name": "storage.type.liftoscript",
-      "match": "\\b(int|float|string|bool|void)\\b"
-    },
-    {
       "name": "variable.language.liftoscript",
       "match": "\\b(true|false|null)\\b"
     },
