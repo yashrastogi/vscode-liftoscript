@@ -1,35 +1,50 @@
 {
-  "name": "vscode-liftoscript",
-  "displayName": "Liftoscript Syntax Highlighting",
-  "description": "Syntax highlighting for the Liftoscript language.",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/yashrastogi/vscode-liftscript"
-  },
-  "version": "0.0.1",
-  "publisher": "yashrastogi",
-  "engines": {
-    "vscode": "^1.70.0"
-  },
-  "categories": [
-    "Programming Languages"
-  ],
-  "contributes": {
-    "languages": [
-      {
-        "id": "liftoscript",
-        "aliases": ["Liftoscript", "liftoscript"],
-        "extensions": [".liftoscript"],
-        "configuration": "./language-configuration.json"
-      }
-    ],
-    "grammars": [
-      {
-        "language": "liftoscript",
-        "scopeName": "source.liftoscript",
-        "path": "./syntaxes/liftoscript.tmLanguage.json"
-      }
-    ]
-  }
+    "name": "vscode-liftoscript-syntax",
+    "displayName": "Liftoscript: Language Support",
+    "description": "Syntax highlighting, code formatting and code folding support for the Liftoscript language.",
+    "version": "0.0.2",
+    "publisher": "yashrastogi1",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/yashrastogi/vscode-liftscript"
+    },
+    "engines": {
+        "vscode": "^1.50.0"
+    },
+    "main": "./out/extension.js",
+    "contributes": {
+        "commands": [],
+        "languages": [
+            {
+                "id": "liftoscript",
+                "aliases": [
+                    "Liftoscript",
+                    "liftoscript"
+                ],
+                "extensions": [
+                    ".liftoscript"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "liftoscript",
+                "scopeName": "source.liftoscript",
+                "path": "./syntaxes/liftoscript.tmLanguage.json"
+            }
+        ]
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "postinstall": "node ./node_modules/vscode/bin/install"
+    },
+    "devDependencies": {
+        "@types/node": "^14.14.6",
+        "@types/vscode": "^1.50.0",
+        "typescript": "^4.0.3",
+        "vscode": "^1.1.37"
+    }
 }
-

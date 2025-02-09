@@ -1,134 +1,80 @@
 {
-  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
-  "name": "Liftoscript",
   "scopeName": "source.liftoscript",
   "patterns": [
-    { "include": "#week-heading" },
-    { "include": "#day-heading" },
-    { "include": "#comments" },
-    { "include": "#exercise-line" },
-    { "include": "#progress-shorthand" },
-    { "include": "#code-block" },
-    { "include": "#constants" }
-  ],
-  "repository": {
-    "comments": {
+    {
       "name": "comment.line.double-slash.liftoscript",
-      "match": "//.*"
+      "match": "//.*$"
     },
-    "week-heading": {
-      "name": "markup.heading.week.liftoscript",
-      "match": "^#\\s+.*$"
+    {
+      "name": "keyword.control.liftoscript",
+      "match": "\\b(if|else|for|while|return|break|continue)\\b"
     },
-    "day-heading": {
-      "name": "markup.heading.day.liftoscript",
-      "match": "^##\\s+.*$"
+    {
+      "name": "storage.type.liftoscript",
+      "match": "\\b(int|float|string|bool|void)\\b"
     },
-    "exercise-line": {
-      "patterns": [
-        {
-          "name": "entity.name.function.exercise.liftoscript",
-          "match": "^(?:(\\w{1,8}):\\s*)?([^/]+)(?=\\s*/)",
-          "captures": {
-            "1": { "name": "meta.label.exercise.liftoscript" },
-            "2": { "name": "entity.name.function.exercise.liftoscript" }
-          }
-        },
-        {
-          "name": "keyword.other.parameter.liftoscript",
-          "match": "\\b(?:warmup|progress|update|substitute|bias|tempo|reps|set|rest|id|tags)\\s*:"
-        },
-        {
-          "name": "constant.numeric.set-reps.liftoscript",
-          "match": "\\b\\d+x\\d+(?:-\\d+)?\\+?\\b"
-        },
-        {
-          "name": "constant.numeric.rpe.liftoscript",
-          "match": "@\\d+\\+?\\b"
-        },
-        {
-          "name": "constant.numeric.duration.liftoscript",
-          "match": "\\b\\d+s\\b"
-        },
-        {
-          "name": "constant.language.liftoscript",
-          "match": "\\b(none)\\b"
-        },
-        {
-          "name": "constant.numeric.weight-percentage.liftoscript",
-          "match": "\\b\\d+%\\+?\\b"
-        },
-        {
-          "name": "constant.numeric.weight.liftoscript",
-          "match": "\\b\\d+(kg|lb)\\+?\\b"
-        },
-        {
-          "name": "punctuation.separator.liftoscript",
-          "match": ","
-        },
-        {
-          "name": "punctuation.separator.continuation.liftoscript",
-          "match": "\\\\$"
-        }
-      ]
+    {
+      "name": "variable.language.liftoscript",
+      "match": "\\b(true|false|null)\\b"
     },
-    "progress-shorthand": {
-      "name": "meta.progress.shorthand.liftoscript",
-      "match": "\\bprogress:\\s*(?:lp|dp)\\([^\\)]+\\)"
+    {
+      "name": "string.quoted.double.liftoscript",
+      "begin": "\"",
+      "end": "\""
     },
-    "code-block": {
-      "begin": "(?:(progress|update):\\s*)?custom\\s*\\([^\\)]*\\)\\s*\\{~",
-      "beginCaptures": {
-        "1": { "name": "keyword.control.liftoscript" }
-      },
-      "end": "~\\}",
-      "patterns": [
-        { "include": "#code-content" }
-      ]
+    {
+      "name": "constant.numeric.liftoscript",
+      "match": "\\b\\d+(\\.\\d+)?\\b"
     },
-    "code-content": {
-      "patterns": [
-        {
-          "name": "comment.line.double-slash.liftoscript",
-          "match": "//.*"
-        },
-        {
-          "name": "keyword.control.liftoscript",
-          "match": "\\b(?:if|else|for|in|print)\\b"
-        },
-        {
-          "name": "keyword.operator.assignment.liftoscript",
-          "match": "(\\+=|-=|\\*=|/=|=)"
-        },
-        {
-          "name": "keyword.operator.arithmetic.liftoscript",
-          "match": "(\\+|\\-|\\*|/|%)"
-        },
-        {
-          "name": "constant.numeric.liftoscript",
-          "match": "\\b\\d+(?:\\.\\d+)?(?:lb|kg|%|s)?\\+?\\b"
-        },
-        {
-          "name": "variable.other.liftoscript",
-          "match": "\\b(?:state\\.[A-Za-z_][A-Za-z0-9_]*|var\\.[A-Za-z_][A-Za-z0-9_]*)\\b"
-        },
-        {
-          "name": "variable.parameter.liftoscript",
-          "match": "\\b(?:weights|w|reps|r|completedReps|cr|RPE|timers|rm1|day|week|dayInWeek|numberOfSets|ns|setVariationIndex|descriptionIndex|setIndex)\\b"
-        },
-        {
-          "name": "support.function.builtin.liftoscript",
-          "match": "\\b(?:rpeMultiplier|floor|ceil|round|sum|min|max|sets)\\b"
-        },
-        {
-          "name": "punctuation.definition.brackets.liftoscript",
-          "match": "[\\(\\)\\[\\]\\{\\}]"
-        }
-      ]
+    {
+      "name": "support.function.liftoscript",
+      "match": "\\b[a-zA-Z_][a-zA-Z0-9_]*\\s*(?=\\()"
     },
-    "constants": {
-      "name": "constant.language.liftoscript",
-      "match": "\\b(custom\\(\\))\\b"
+    {
+      "name": "keyword.operator.liftoscript",
+      "match": "\\+|\\-|\\*|\\/|\\=|\\<|\\>|\\!|\\&|\\||\\%"
+    },
+    {
+      "name": "entity.name.function.liftoscript",
+      "match": "\\b(print|sum|min|max|floor|ceil|round|rpeMultiplier)\\b"
+    },
+    {
+      "name": "variable.parameter.liftoscript",
+      "match": "\\b(weights|reps|completedReps|RPE|completedRPE|rm1|day|week|dayInWeek|numberOfSets|setVariationIndex|descriptionIndex)\\b"
+    },
+    {
+      "name": "keyword.other.liftoscript",
+      "match": "\\b(progress|update|custom|state|var|sets|setIndex)\\b"
+    },
+    {
+      "name": "entity.name.tag.liftoscript",
+      "match": "\\b(id|tags|used|warmup|progress|update|custom)\\b"
+    },
+    {
+      "name": "storage.modifier.liftoscript",
+      "match": "\\b(lp|dp|sum)\\b"
+    },
+    {
+      "name": "markup.heading.liftoscript",
+      "match": "^#\\s.*$"
+    },
+    {
+      "name": "markup.heading.liftoscript",
+      "match": "^##\\s.*$"
+    },
+    {
+      "name": "markup.italic.liftoscript",
+      "match": "\\*\\*(.*?)\\*\\*"
+    },
+    {
+      "name": "markup.bold.liftoscript",
+      "match": "\\*(.*?)\\*"
+    },
+    {
+      "name": "markup.list.liftoscript",
+      "match": "^\\s*[-*+]\\s.*$"
     }
-  }
+  ],
+  "repository": {},
+  "injections": {}
 }
