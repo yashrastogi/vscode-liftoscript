@@ -2,7 +2,7 @@
     "name": "vscode-liftoscript-syntax",
     "displayName": "Liftoscript: Language Support",
     "description": "Syntax highlighting, code formatting and code folding support for the Liftoscript language.",
-    "version": "0.0.2",
+    "version": "0.0.4",
     "publisher": "yashrastogi1",
     "repository": {
         "type": "git",

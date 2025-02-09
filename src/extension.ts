@@ -119,8 +119,8 @@ async function formatCode(code: string): Promise<string> {
             if (formattedBefore) {
                 formattedLines.push(baseIndent + formattedBefore);
             }
-            // Push the custom block start marker with base indent.
-            formattedLines.push(baseIndent + trimmedLine.substring(index).trim());
+            // Push the custom block start marker
+            formattedLines[formattedLines.length - 1] += " " + trimmedLine.substring(index).trim()
             inCustomBlock = true;
             jsIndentLevel = 0; // Reset JS indent level on entering a custom block.
             continue;
@@ -168,5 +168,6 @@ async function formatCode(code: string): Promise<string> {
 
     return formattedLines.join("\n");
 }
+
 
 export function deactivate() { }
