@@ -6,7 +6,7 @@
     "publisher": "yashrastogi1",
     "repository": {
         "type": "git",
-        "url": "https://github.com/yashrastogi/vscode-liftscript"
+        "url": "https://github.com/yashrastogi/vscode-liftoscript"
     },
     "engines": {
         "vscode": "^1.97.0"
