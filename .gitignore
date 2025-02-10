@@ -4,3 +4,6 @@ out/
 .vscode/
 package-lock.json
 .DS_Store
+.vscode/**
+.vscode-test-web/**
+dist/

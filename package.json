@@ -1,58 +1,78 @@
 {
-    "name": "vscode-liftoscript-syntax",
-    "displayName": "Liftoscript: Language Support",
-    "description": "Syntax highlighting, code formatting and code folding support for the Liftoscript language.",
-    "version": "0.0.5",
-    "publisher": "yashrastogi1",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/yashrastogi/vscode-liftoscript"
-    },
-    "engines": {
-        "vscode": "^1.97.0"
-    },
-    "activationEvents": [
-        "onCommand:liftoscript.format"
+  "name": "vscode-liftoscript-syntax",
+  "displayName": "Liftoscript: Language Support",
+  "description": "Syntax highlighting, code formatting and code folding support for the Liftoscript language.",
+  "version": "0.0.6",
+  "publisher": "yashrastogi1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yashrastogi/vscode-liftoscript"
+  },
+  "engines": {
+    "vscode": "^1.97.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:liftoscript.format"
+  ],
+  "browser": "./dist/web/extension.js",
+  "contributes": {
+    "iconThemes": [
+      {
+        "id": "liftosaur-icon",
+        "label": "Liftosaur Icon",
+        "path": "./icons/icon-theme.json"
+      }
     ],
-    "main": "./out/extension.js",
-    "contributes": {
-        "iconThemes": [
-            {
-                "id": "liftosaur-icon",
-                "label": "Liftosaur Icon",
-                "path": "./icons/icon-theme.json"
-            }
+    "languages": [
+      {
+        "id": "liftoscript",
+        "aliases": [
+          "Liftoscript",
+          "liftoscript"
         ],
-        "commands": [],
-        "languages": [
-            {
-                "id": "liftoscript",
-                "aliases": [
-                    "Liftoscript",
-                    "liftoscript"
-                ],
-                "extensions": [
-                    ".liftoscript"
-                ],
-                "configuration": "./language-configuration.json"
-            }
+        "extensions": [
+          ".liftoscript"
         ],
-        "grammars": [
-            {
-                "language": "liftoscript",
-                "scopeName": "source.liftoscript",
-                "path": "./syntaxes/liftoscript.tmLanguage.json"
-            }
-        ]
-    },
-    "scripts": {
-        "vscode:prepublish": "npm run compile",
-        "compile": "tsc -p ./",
-        "watch": "tsc -watch -p ./"
-    },
-    "devDependencies": {
-        "@types/node": "^14.14.6",
-        "@types/vscode": "^1.97.0",
-        "typescript": "^4.0.3"
-    }
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "liftoscript",
+        "scopeName": "source.liftoscript",
+        "path": "./syntaxes/liftoscript.tmLanguage.json"
+      }
+    ],
+    "commands": []
+  },
+  "scripts": {
+    "test": "vscode-test-web --browserType=chromium --extensionDevelopmentPath=.",
+    "pretest": "npm run compile-web",
+    "vscode:prepublish": "npm run package-web",
+    "compile-web": "webpack",
+    "watch-web": "webpack --watch",
+    "package-web": "webpack --mode production --devtool hidden-source-map",
+    "lint": "eslint src",
+    "run-in-browser": "vscode-test-web --browserType=chromium --extensionDevelopmentPath=. ."
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.97.0",
+    "@types/mocha": "^10.0.10",
+    "@types/assert": "^1.5.11",
+    "eslint": "^9.19.0",
+    "@typescript-eslint/eslint-plugin": "^8.22.0",
+    "@typescript-eslint/parser": "^8.22.0",
+    "mocha": "^11.1.0",
+    "typescript": "^5.7.3",
+    "@vscode/test-web": "^0.0.66",
+    "ts-loader": "^9.5.2",
+    "webpack": "^5.97.1",
+    "webpack-cli": "^6.0.1",
+    "@types/webpack-env": "^1.18.8",
+    "assert": "^2.1.0",
+    "process": "^0.11.10"
+  }
 }
