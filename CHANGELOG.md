@@ -19,3 +19,7 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 ## 0.0.5
 
 - Add icon
+
+## 0.0.6
+
+- Convert to web extension
