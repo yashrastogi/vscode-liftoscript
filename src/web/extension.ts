@@ -128,27 +128,33 @@ async function formatCode(code: string): Promise<string> {
 
 		// Process lines inside a custom block (JS formatting)
 		if (inCustomBlock) {
+			let jsIndent = "    ".repeat(jsIndentLevel + 1);
 			// If the line contains the end marker, output with base indent and exit block.
 			if (trimmedLine.includes("~}")) {
 				formattedLines.push(baseIndent + trimmedLine);
 				inCustomBlock = false;
 				jsIndentLevel = 0;
 			}
-			// For comment lines inside the custom block, use parent (base) indent only.
+			// For comment lines inside the custom block, use code block base indent.
 			else if (trimmedLine.startsWith("//")) {
-				formattedLines.push(baseIndent + trimmedLine);
+				formattedLines.push(baseIndent + jsIndent + trimmedLine);
 			}
 			// For all other JS lines, apply additional indenting.
 			else {
 				let jsLine = trimmedLine;
 				// If the line starts with a closing brace, reduce indent level first.
-				if (jsLine.startsWith("}")) {
+				if (jsLine.startsWith("}") || jsLine.startsWith(")")) { // End of a block or function call
 					jsIndentLevel = Math.max(jsIndentLevel - 1, 0);
 				}
-				const jsIndent = "    ".repeat(jsIndentLevel + 1);
+				jsIndent = "    ".repeat(jsIndentLevel + 1);
 				formattedLines.push(baseIndent + jsIndent + jsLine);
 				// If the line ends with an opening brace (and doesn’t also include a closing brace), increase indent level.
 				if (jsLine.endsWith("{") && !jsLine.includes("}")) {
+					jsIndentLevel++;
+				} else if (jsLine[0] === "}" && jsLine.endsWith("{")) { // Special case for lines like "} else {"
+					jsIndentLevel++;
+				}
+				if (jsLine.endsWith("(") && !jsLine.includes(")")) { // Indentation for multi-line function calls
 					jsIndentLevel++;
 				}
 			}

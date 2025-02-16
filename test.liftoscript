@@ -30,7 +30,10 @@
                 descriptionIndex = 2
                 setVariationIndex = 1
                 weights = weights[1] * 0.85
-                rm1 = weights[1] / rpeMultiplier(5, 10)
+                rm1 = weights[1] / rpeMultiplier(
+                    5, 
+                    10
+                    )
             } else if (completedReps >= reps) {
             weights = weights[ns] + state.increase
             } else if (setVariationIndex == 3) {
