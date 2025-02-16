@@ -6,49 +6,32 @@
       "match": "//.*$"
     },
     {
-      "name": "keyword.control.liftoscript",
-      "match": "\\b(if|else|for|while|return|break|continue)\\b"
-    },
-    {
-      "name": "variable.language.liftoscript",
-      "match": "\\b(true|false|null)\\b"
-    },
-    {
-      "name": "string.quoted.double.liftoscript",
-      "begin": "\"",
-      "end": "\""
-    },
-    {
       "name": "constant.numeric.liftoscript",
       "match": "\\b\\d+(\\.\\d+)?\\b"
-    },
-    {
-      "name": "support.function.liftoscript",
-      "match": "\\b[a-zA-Z_][a-zA-Z0-9_]*\\s*(?=\\()"
-    },
-    {
-      "name": "keyword.operator.liftoscript",
-      "match": "\\+|\\-|\\*|\\/|\\=|\\<|\\>|\\!|\\&|\\||\\%"
     },
     {
       "name": "entity.name.function.liftoscript",
       "match": "\\b(print|sum|min|max|floor|ceil|round|rpeMultiplier)\\b"
     },
     {
-      "name": "variable.parameter.liftoscript",
-      "match": "\\b(weights|reps|completedReps|RPE|completedRPE|rm1|day|week|dayInWeek|numberOfSets|setVariationIndex|descriptionIndex)\\b"
+      "name": "entity.name.tag.liftoscript",
+      "match": "\\b(id|tags|used|warmup|progress|update|custom)\\b"
+    },
+    {
+      "name": "keyword.control.liftoscript",
+      "match": "\\b(if|else|for|while|return|break|continue)\\b"
+    },
+    {
+      "name": "keyword.operator.liftoscript",
+      "match": "\\+|\\-|\\*|\\/|\\=|\\<|\\>|\\!|\\&|\\||\\%"
     },
     {
       "name": "keyword.other.liftoscript",
       "match": "\\b(progress|update|custom|state|var|sets|setIndex)\\b"
     },
     {
-      "name": "entity.name.tag.liftoscript",
-      "match": "\\b(id|tags|used|warmup|progress|update|custom)\\b"
-    },
-    {
-      "name": "storage.modifier.liftoscript",
-      "match": "\\b(lp|dp|sum)\\b"
+      "name": "markup.bold.liftoscript",
+      "match": "\\*(.*?)\\*"
     },
     {
       "name": "markup.heading.liftoscript",
@@ -63,12 +46,29 @@
       "match": "\\*\\*(.*?)\\*\\*"
     },
     {
-      "name": "markup.bold.liftoscript",
-      "match": "\\*(.*?)\\*"
-    },
-    {
       "name": "markup.list.liftoscript",
       "match": "^\\s*[-*+]\\s.*$"
+    },
+    {
+      "name": "storage.modifier.liftoscript",
+      "match": "\\b(lp|dp|sum)\\b"
+    },
+    {
+      "name": "string.quoted.double.liftoscript",
+      "begin": "\"",
+      "end": "\""
+    },
+    {
+      "name": "support.function.liftoscript",
+      "match": "\\b[a-zA-Z_][a-zA-Z0-9_]*\\s*(?=\\()"
+    },
+    {
+      "name": "variable.language.liftoscript",
+      "match": "\\b(true|false|null)\\b"
+    },
+    {
+      "name": "variable.parameter.liftoscript",
+      "match": "\\b(weights|reps|completedReps|RPE|completedRPE|rm1|day|week|dayInWeek|numberOfSets|setVariationIndex|descriptionIndex)\\b"
     }
   ],
   "repository": {},
