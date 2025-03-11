@@ -129,8 +129,14 @@ async function formatCode(code: string): Promise<string> {
 		// Process lines inside a custom block (JS formatting)
 		if (inCustomBlock) {
 			let jsIndent = "    ".repeat(jsIndentLevel + 1);
-			// If the line contains the end marker, output with base indent and exit block.
-			if (trimmedLine.includes("~}")) {
+			// Handling for special case like: ~} / progress: custom() {~
+			if (trimmedLine.includes("~}") && trimmedLine.includes("{~")) {
+				// let orange = vscode.window.createOutputChannel("Orange"); orange.appendLine("~{}~trimmedLine: " + trimmedLine);
+				formattedLines.push(baseIndent + trimmedLine);
+				jsIndentLevel = 0;
+			}
+			// If the line contains the end marker, output with base indent and exit block. 
+			else if (trimmedLine.includes("~}") && !trimmedLine.includes("{~")) {
 				formattedLines.push(baseIndent + trimmedLine);
 				inCustomBlock = false;
 				jsIndentLevel = 0;
